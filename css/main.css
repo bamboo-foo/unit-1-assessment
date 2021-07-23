@@ -29,7 +29,7 @@ button {
     background-color: var(--bgnd-gray);
     color: white;
     /* padding: 0 0.60em;    */
-    width: 13.5%;
+    width: 2em;
 }
 
 button:hover {
