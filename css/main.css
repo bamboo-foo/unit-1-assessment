@@ -14,6 +14,10 @@ section {
     font-size: 3em;
 }
 
+.display {
+    font-family: 'Yeseva One', cursive;
+}
+
 button, input {
     font-size: 0.5em;
     margin: 0 2%;
@@ -23,12 +27,9 @@ button, input {
 
 }
 
-
-
 button {
     background-color: var(--bgnd-gray);
     color: white;
-    /* padding: 0 0.60em;    */
     width: 2em;
 }
 
@@ -48,8 +49,6 @@ input {
     width: 25%;
     padding: 10px;
     height: 1em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: 0.5em;
+    text-align: center;
 }
