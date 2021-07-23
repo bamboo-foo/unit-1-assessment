@@ -6,8 +6,6 @@ let result = 0,
 // -- Cache DOM elements --
 
 let buttons = document.querySelector('.buttons'),
-    // addEl = document.getElementById('add'),
-    // subEl = document.getElementById('subtract'),
     input = document.querySelector('input'),
     displ = document.querySelector('.display');
 
@@ -16,7 +14,6 @@ let buttons = document.querySelector('.buttons'),
 // -- Add event listeners --
 
 buttons.addEventListener('click', handleClick);
-//subEl.addEventListener('click', handleClick);
 
 // -- Controller --
 init();
