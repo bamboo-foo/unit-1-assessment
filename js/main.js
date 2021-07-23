@@ -1,32 +1,61 @@
-  // -- Cache DOM elements --
+// -- State Vars --
+let result = 0,
+    num1 = 0,
+    num2 = 0;
 
-let addEl = document.getElementById('add'),
-    subEl = document.getElementById('subtract'),
+// -- Cache DOM elements --
+
+let buttons = document.querySelector('.buttons'),
+    // addEl = document.getElementById('add'),
+    // subEl = document.getElementById('subtract'),
     input = document.querySelector('input'),
     displ = document.querySelector('.display');
 
+    
+    
+// -- Add event listeners --
+
+buttons.addEventListener('click', handleClick);
+//subEl.addEventListener('click', handleClick);
+
+// -- Controller --
 init();
+render(result)
 
 function init() {
-    
-  addEl.addEventListener('click', handleClick);
-  subEl.addEventListener('click', handleClick);
+  
+  result = 0,
+  num1 = parseInt(input.value),
+  num2 = parseInt(displ.innerText);
 
+}
+
+function render(result) {
+  
+  if (result < 0) {
+    displ.setAttribute('style', 'color: red');
+  } else {
+    displ.setAttribute('style', 'color: black');
+  }
+
+  displ.innerText = result;
 }
 
 function handleClick(mouseEvent) {
 
   let whoClicked = mouseEvent.target.getAttribute('id');
 
-  displ.innerText = summate(whoClicked);
+  result = summate(whoClicked);
+
+  render(result)
 
 }
 
 function summate(operation) {
   
-  let newResult = 0,
-      num1 = parseInt(input.value),
-      num2 = parseInt(displ.innerText);
+
+  num1 = parseInt(input.value),
+  num2 = parseInt(displ.innerText);
 
   switch(operation) {
 
@@ -37,12 +66,7 @@ function summate(operation) {
     case 'subtract':
       result = num2 - num1;
   }
-
-  if (result < 0) {
-    displ.setAttribute('style', 'color: red');
-  } else {
-    displ.setAttribute('style', 'color: black');
-  }
+  
   return result;
 
 }
