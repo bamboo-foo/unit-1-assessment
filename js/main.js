@@ -6,6 +6,7 @@ let result = 0,
 // -- Cache DOM elements --
 
 let buttons = document.querySelector('.buttons'),
+	ng = document.getElementById('ng'),
     input = document.querySelector('input'),
     displ = document.querySelector('.display');
 
@@ -14,10 +15,25 @@ let buttons = document.querySelector('.buttons'),
 // -- Add event listeners --
 
 buttons.addEventListener('click', handleClick);
+ng.addEventListener('click', handleClick);
 
-// -- Controller --
+// -- Initialization --
 init();
 render(result)
+
+function controller(addSub, reload) {
+
+	if (addSub) {
+		result = summate(addSub);
+
+		render(result)
+	}
+
+	if (reload) {
+		location.reload();
+	}
+	
+}
 
 function init() {
   
@@ -42,9 +58,15 @@ function handleClick(mouseEvent) {
 
   let whoClicked = mouseEvent.target.getAttribute('id');
 
-  result = summate(whoClicked);
+  if (whoClicked === 'ng') {
 
-  render(result)
+	controller(0, 'reset');
+  	
+  } else {
+
+  	controller(whoClicked);
+  	
+  }
 
 }
 
